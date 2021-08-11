@@ -1,4 +1,4 @@
-- [PFA_Analyzer](#pfa-analyzer)
+- [efficiencyAnalyzer](#pfa-analyzer)
     + [Installation](#installation)
     + [Usage](#usage)
       - [Single run](#single-run)
@@ -16,7 +16,7 @@
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
-# PFA_Analyzer
+# efficiencyAnalyzer
 **NOTE : Not Final**
 Repository aimed to host the code to analyze the [GEM Common Muon NTuples](https://github.com/gmilella12/MuonDPGNTuples) and produce (mainly) Efficiency and Residuals Plots 
 
@@ -25,7 +25,7 @@ Repository aimed to host the code to analyze the [GEM Common Muon NTuples](https
 ### Installation
 ```
 git clone https://github.com/gem-sw/pfa.git
-cd PFA_Analyzer
+cd efficiencyAnalyzer
 source setup.sh
 ```
 ### Usage
@@ -34,13 +34,13 @@ source setup.sh
 * Set of [compatible](#Compatibility) GEM NTuples related to your run, stored under */A/B/C/*
 
 ##### Optional Inputs (some of them)
-* List of chambers to be masked ([./ChamberOFF_Example.txt](./ExcludeMe/ChamberOFF_CRUZET_342728.txt)) cause were OFF/Tripped/inError during the run
-* Tab separated list of VFAT to be masked ([./ListOfDeadVFAT_Example.txt](/ExcludeMe/ListOfDeadVFAT_run343034.txt)) cause were inError/Noisy/NoData during the run
+* List of chambers to be masked ([./ChamberOFF_Example.txt](./Example/ChamberOFF_CRUZET_342728.txt)) cause were OFF/Tripped/inError during the run
+* Tab separated list of VFAT to be masked ([./ListOfDeadVFAT_Example.txt](/Example/ListOfDeadVFAT_run343034.txt)) cause were inError/Noisy/NoData during the run
 * *myOutput* as label for the output data 
 
 By executing
 ```
-python PFA_Analyzer.py --dataset /A/B/C/ --chamberOFF ./ChamberOFF_Example.txt  --VFATOFF ./ListOfDeadVFAT_Example.txt -pc 0.02 -rdpc 4  --outputname myOutput
+python efficiencyAnalyzer.py --dataset /A/B/C/ --chamberOFF ./ChamberOFF_Example.txt  --VFATOFF ./ListOfDeadVFAT_Example.txt -pc 0.02 -rdpc 4  --outputname myOutput
 ```
 
 the GEM NTuples stored in */A/B/C/* will be anlyzed using 
@@ -57,7 +57,7 @@ Additionaly (set by default but can be parsed as option):
 * Max Error On Propagated Hit in R = 1 cm (suggested for cosmics data)
 * Max Error On Propagated Hit in φ = 10 mrad (suggested for cosmics data)
 
-Many other options can be provided as input (e.g STA chi2 cut, fiducial cuts values, number of MEX hits etc...). You are encouraged to have a look at them `python PFA_Analyzer.py --help`
+Many other options can be provided as input (e.g STA chi2 cut, fiducial cuts values, number of MEX hits etc...). You are encouraged to have a look at them `python efficiencyAnalyzer.py --help`
 
 
 #### Merging runs
@@ -77,7 +77,7 @@ Let's suppose you have a list of VFAT OFF for each of this run:
 
 By executing
 ```
-python PFA_Analyzer.py --dataset /A/B/C/Run1/ /A/B/C/Run2/ /A/B/C/Run3/ --chamberOFF ./ChamberOFF_Run_1.txt ./ChamberOFF_Run_2.txt ./ChamberOFF_Run_3.txt --VFATOFF ./ListOfDeadVFAT_Run_1.txt ./ListOfDeadVFAT_Run_2.txt ./ListOfDeadVFAT_Run_3.txt -pc 0.02 -rdpc 4  --outputname myOutput
+python efficiencyAnalyzer.py --dataset /A/B/C/Run1/ /A/B/C/Run2/ /A/B/C/Run3/ --chamberOFF ./ChamberOFF_Run_1.txt ./ChamberOFF_Run_2.txt ./ChamberOFF_Run_3.txt --VFATOFF ./ListOfDeadVFAT_Run_1.txt ./ListOfDeadVFAT_Run_2.txt ./ListOfDeadVFAT_Run_3.txt -pc 0.02 -rdpc 4  --outputname myOutput
 ```
 
 the GEM NTuples stored in /A/B/C/Run1/, /A/B/C/Run2/, /A/B/C/Run3/ will be merged together and anlyzed using :
@@ -129,7 +129,7 @@ When the boolean option --FD is provided, no events are ignored and GEM digis ar
 The processing time increases.
 
 ### Output
-A typical output file is [./day19_344063_660uA.root](./day19_344063_660uA.root)
+A typical output file is [./Example/day19_344063_660uA.root](./Example/day19_344063_660uA.root)
 
 Three main groups of folders can be found in the output file:
 * Performance Related Folder

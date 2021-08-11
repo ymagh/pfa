@@ -21,14 +21,14 @@ except:
   print("ERROR:\n\tCan't find the package CMS_lumi and tdrstlye\n\tPlease verify that this file are placed in the path $myLIB/ROOT_Utils/ \n\tAdditionally keep in mind to export the environmental variable $myLIB\nEXITING...\n") 
   sys.exit(0)
 try:
-    from PFA_Analyzer_Utils import *
+    from efficiencyAnalyzer_Utils import *
 except:
-    print ("ERROR:\n\tCan't find the package PFA_Analyzer_Utils\nEXITING...\n")
+    print ("ERROR:\n\tCan't find the package efficiencyAnalyzer_Utils\nEXITING...\n")
     sys.exit(0)
 
 parser = argparse.ArgumentParser(
         description='''Scripts that: \n\t-Reads the GEMMuonNtuple\n\t-Plot Sanity Checks\n\t-Plot Residuals (takes the cut as parameter)\n\t-Plot efficiency\nCurrently allows the track matching on glb_phi and glb_rdphi''',
-        epilog="""Typical exectuion\n\t python Analysis_lxplus.py  --phi_cut 0.001 --rdphi_cut 0.15""",
+        epilog="""Typical exectuion\n\t python efficiencyAnalyzer.py  --phi_cut 0.001 --rdphi_cut 0.15 --dataset /eos/cms/store/group/dpg_gem/comm_gem/P5_Commissioning/2021/GEMCommonNtuples/CRUZET/Run_343862/""",
         formatter_class=RawTextHelpFormatter
 )
 
