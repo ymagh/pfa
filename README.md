@@ -18,7 +18,7 @@
 
 # PFA_Analyzer
 **NOTE : Not Final**
-Repository aimed to host the code to analyze the [GEM Common Muon NTuples](https://github.com/gmilella12/MuonDPGNTuples)
+Repository aimed to host the code to analyze the [GEM Common Muon NTuples](https://github.com/gmilella12/MuonDPGNTuples) and produce (mainly) Efficiency and Residuals Plots 
 
 
 
