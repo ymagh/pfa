@@ -155,7 +155,7 @@ for (int ch = 1; ch <= 36; ch++)  { //loop on chambers
 			if (A[ch][v][i]==0 && n!=0)
 			{
 				t1++;		
-				cout<<"t2:"<<t2<<", chamber:"<<ch<<", eta:"<<j<<", vfat:"<<v<<" ,strip:"<<i<<endl;
+				cout<<"t1:"<<t1<<", chamber:"<<ch<<", eta:"<<j<<", vfat:"<<v<<" ,strip:"<<i<<endl;
 				//filep<<ch<<","<<j<<","<<v<<","<<i<<endl;
 			}
 			//strips inactive in data but active in scurves
