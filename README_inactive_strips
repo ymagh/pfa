@@ -1,0 +1,21 @@
+### USAGE
+root inactive.c++
+
+### ROOT files
+Offline DQM root files for CRUZET available at: 
+/eos/cms/store/group/dpg_gem/comm_gem/P5_Commissioning/2021/Calibration/CRUZET
+
+### SCurve inactive strip list:
+SCurve inactive strip lists are available at:
+eos/cms/store/group/dpg_gem/comm_gem/P5_Commissioning/2021/Calibration/SCurve/inactive
+
+### UPDATE FOR CRAFT and BEAM RUNS:
+Digi occupancy plots were changed in DQM code. Therefore, this change is to be reflected in 
+inactive.c. (see example code below to be replaced line 56)
+
+	for (int i = 1; i <= 36; i++) {
+		if      (i<10 && i%2==0)  sprintf(name, "occ_GE11-P-0%dL1-L",i);
+		else if (i<10 && i%2!=0)  sprintf(name, "occ_GE11-P-0%dL1-S",i);
+		else if (i>=10 && i%2==0) sprintf(name, "occ_GE11-P-%dL1-L",i);
+		else if (i>=10 && i%2!=0) sprintf(name, "occ_GE11-P-%dL1-S",i);
+		}
